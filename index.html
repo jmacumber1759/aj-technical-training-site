@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A&J Technical Training Services provides technical training, apprenticeship/OJT support, mentorship, and workforce transition planning for transit agencies and service organizations." />
+  <title>A&J Technical Training Services</title>
+
+  <!-- Simple, fast, single-file site. Replace placeholders like [YOUR EMAIL] and [CALENDLY LINK]. -->
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#101823;
+      --text:#e9eef5;
+      --muted:#b6c2d2;
+      --line:rgba(233,238,245,.14);
+      --accent:#56c2ff;
+      --accent2:#57e3b4;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 15% 10%, rgba(86,194,255,.16), transparent 60%),
+                  radial-gradient(900px 500px at 90% 15%, rgba(87,227,180,.12), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,20,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 30px rgba(86,194,255,.18);
+    }
+    .nav-links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .nav-links a{
+      font-size:14px; color:var(--muted);
+      padding:8px 10px; border-radius:12px;
+    }
+    .nav-links a:hover{color:var(--text); background:rgba(233,238,245,.06)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(233,238,245,.14);
+      background: rgba(233,238,245,.06);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+      user-select:none;
+    }
+    .btn:hover{background: rgba(233,238,245,.10); border-color: rgba(233,238,245,.22)}
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(86,194,255,.95), rgba(87,227,180,.88));
+      border-color: transparent;
+      color:#041018;
+    }
+    .btn.primary:hover{filter: brightness(1.03)}
+    .btn.small{padding:10px 12px; border-radius:12px}
+    .hero{
+      padding:64px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:24px;
+      align-items:start;
+    }
+    h1{
+      margin:0 0 12px;
+      font-size: clamp(34px, 4.6vw, 54px);
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    .subhead{
+      margin:0 0 20px;
+      font-size: clamp(16px, 1.5vw, 18px);
+      color:var(--muted);
+      max-width: 62ch;
+    }
+    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 0}
+    .pill{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(233,238,245,.14);
+      background: rgba(233,238,245,.05);
+      font-size:13px;
+      color:var(--muted);
+    }
+    .card{
+      background: rgba(16,24,35,.85);
+      border:1px solid rgba(233,238,245,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{padding:18px}
+    .metric{
+      border-top:1px solid rgba(233,238,245,.10);
+      padding-top:14px;
+      margin-top:14px;
+      display:grid;
+      gap:12px;
+    }
+    .metric div{display:flex; gap:10px; align-items:flex-start}
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      margin-top:6px;
+      flex:0 0 auto;
+    }
+    .section{padding:36px 0}
+    .section h2{
+      font-size:24px;
+      margin:0 0 12px;
+      letter-spacing:-.2px;
+    }
+    .section p.lead{margin:0 0 18px; color:var(--muted); max-width: 75ch}
+    .split-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    .tile{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid rgba(233,238,245,.12);
+      background: rgba(233,238,245,.04);
+      position:relative;
+      overflow:hidden;
+    }
+    .tile:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 220px at 20% 10%, rgba(86,194,255,.18), transparent 55%),
+                  radial-gradient(700px 220px at 80% 10%, rgba(87,227,180,.14), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .tile > *{position:relative}
+    .tile h3{margin:0 0 8px; font-size:18px}
+    .tile p{margin:0 0 14px; color:var(--muted)}
+    .tile ul{margin:0; padding-left:18px; color:var(--muted)}
+    .tile li{margin:6px 0}
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .svc{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(233,238,245,.12);
+      background: rgba(233,238,245,.04);
+      min-height: 160px;
+    }
+    .svc h3{margin:0 0 8px; font-size:16px}
+    .svc p{margin:0; color:var(--muted); font-size:14px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      margin-top:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(233,238,245,.14);
+      background: rgba(233,238,245,.05);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .about{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+    }
+    .about .card{padding:18px}
+    .quote{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .quote strong{color:var(--text)}
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    form{
+      display:grid;
+      gap:12px;
+    }
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(233,238,245,.14);
+      background: rgba(11,15,20,.45);
+      color:var(--text);
+      font-size:14px;
+      outline:none;
+    }
+    input:focus, textarea:focus{border-color: rgba(86,194,255,.55)}
+    textarea{min-height:120px; resize:vertical}
+    .footer{
+      padding:28px 0 40px;
+      color:var(--muted);
+      border-top:1px solid rgba(233,238,245,.12);
+      margin-top:18px;
+      font-size:13px;
+    }
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      margin-bottom:14px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(233,238,245,.14);
+      background: rgba(233,238,245,.05);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .kicker span{
+      display:inline-block; width:8px; height:8px; border-radius:99px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    .note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:10px;
+    }
+    .two-btns{display:flex; gap:10px; flex-wrap:wrap}
+    .hide-sm{display:inline}
+    @media (max-width: 940px){
+      .hero-grid{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .split-grid{grid-template-columns:1fr}
+      .hide-sm{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="A&J Technical Training Services home">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <div style="font-size:14px; line-height:1.1">A&J Technical Training Services</div>
+            <div style="font-size:12px; color:var(--muted); font-weight:600; letter-spacing:.15px">Training • Apprenticeship • Mentorship</div>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Site navigation">
+          <a href="#audiences">Who we serve</a>
+          <a href="#services">Services</a>
+          <a href="#focus">Focus areas</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a class="btn small primary" href="[CALENDLY LINK]" target="_blank" rel="noopener">Book a call</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="kicker"><span></span> Practical training. Clear standards. Integrity-first delivery.</div>
+            <h1>Technical training that makes techs better—fast.</h1>
+            <p class="subhead">
+              A&J Technical Training Services helps <strong>transit agencies</strong> and <strong>service organizations</strong>
+              build technician capability through hands-on training, apprenticeship/OJT support, mentorship systems, and workforce transition planning.
+            </p>
+            <div class="two-btns">
+              <a class="btn primary" href="[CAPABILITY PDF LINK]" target="_blank" rel="noopener">Download capabilities (PDF)</a>
+              <a class="btn" href="#contact">Send a message</a>
+            </div>
+            <div class="pill-row" aria-label="Highlights">
+              <div class="pill">Zero-emission transition readiness</div>
+              <div class="pill">Apprenticeship & OJT frameworks</div>
+              <div class="pill">Mentorship & retention systems</div>
+              <div class="pill">Train-the-trainer delivery</div>
+            </div>
+          </div>
+
+          <aside class="card hero-card" aria-label="What you can expect">
+            <div style="font-weight:800; letter-spacing:.1px">What to expect</div>
+            <div class="metric">
+              <div><span class="dot"></span><div><strong>Practical</strong><div style="color:var(--muted); font-size:13px">Training built around the work, not theory for theory’s sake.</div></div></div>
+              <div><span class="dot"></span><div><strong>Measurable</strong><div style="color:var(--muted); font-size:13px">Clear outcomes, assessments, and repeatable tools.</div></div></div>
+              <div><span class="dot"></span><div><strong>Reliable</strong><div style="color:var(--muted); font-size:13px">Direct communication, tight scope, and on-time delivery.</div></div></div>
+            </div>
+            <div class="note">Replace links in the header buttons with your Calendly + PDF link.</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCES -->
+    <section id="audiences" class="section">
+      <div class="wrap">
+        <h2>Who we serve</h2>
+        <p class="lead">Two lanes—one standard: shop-relevant training that holds up in the real world.</p>
+
+        <div class="split-grid">
+          <div class="tile" aria-label="Transit agencies">
+            <h3>Transit agencies & public fleets</h3>
+            <p>Support for maintenance workforce capability—especially during technology transitions.</p>
+            <ul>
+              <li>Zero-emission workforce transition readiness (BEV/FCEV fundamentals + safety)</li>
+              <li>Apprenticeship / OJT program design, review, and registration guidance</li>
+              <li>Skills-gap analysis and training pathway development</li>
+              <li>Train-the-trainer programs for internal instructors</li>
+            </ul>
+            <div class="badge">Best for: maintenance leadership, training teams, workforce partners</div>
+          </div>
+
+          <div class="tile" aria-label="Service organizations">
+            <h3>Dealerships, contractors & service departments</h3>
+            <p>Systems that help you keep and grow techs—without adding chaos to the shop.</p>
+            <ul>
+              <li>Mentorship programs that actually run (selection, structure, check-ins)</li>
+              <li>Retention and onboarding improvements for technicians</li>
+              <li>Frontline leadership development for shop leads</li>
+              <li>Technical training modernization (procedures, assessments, consistency)</li>
+            </ul>
+            <div class="badge">Best for: service managers, HR/ops leaders, shop foremen</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <div class="wrap">
+        <h2>Services</h2>
+        <p class="lead">Pick what you need, or bundle into a phased plan (assessment → training → sustainment).</p>
+
+        <div class="grid-3">
+          <div class="svc">
+            <h3>Technical Training (hands-on & classroom)</h3>
+            <p>Foundational electrical, diagnostics, safety, and job-ready procedures—delivered in a way technicians respect.</p>
+          </div>
+          <div class="svc">
+            <h3>Apprenticeship & OJT Support</h3>
+            <p>Skill standards, progression, documentation, and mentor coaching—plus review/registration guidance when needed.</p>
+          </div>
+          <div class="svc">
+            <h3>Train-the-Trainer</h3>
+            <p>Turn SMEs into consistent instructors with lesson plans, facilitation tools, and repeatable delivery.</p>
+          </div>
+          <div class="svc">
+            <h3>Workforce Transition Planning (ZEB)</h3>
+            <p>Readiness assessments, role impacts, training pathways, and implementation plans for BEV/FCEV adoption.</p>
+          </div>
+          <div class="svc">
+            <h3>Mentorship & Retention Programs</h3>
+            <p>Mentor selection, structure, cadence, and measurement—built to survive real shop conditions.</p>
+          </div>
+          <div class="svc">
+            <h3>Frontline Leadership for Service Teams</h3>
+            <p>Accountability rhythms, coaching habits, and practical leadership tools that reduce turnover and rework.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOCUS AREAS -->
+    <section id="focus" class="section">
+      <div class="wrap">
+        <h2>Focus areas</h2>
+        <p class="lead">Where we tend to deliver the most value quickly.</p>
+        <div class="grid-3">
+          <div class="svc">
+            <h3>Zero-emission technician readiness</h3>
+            <p>BEV/FCEV fundamentals, safety culture, and a phased training path that fits real staffing.</p>
+            <div class="badge">Outcome: safer work + fewer “unknowns”</div>
+          </div>
+          <div class="svc">
+            <h3>Skills-gap to training pathway</h3>
+            <p>Define required competencies, assess current state, then build a realistic training sequence.</p>
+            <div class="badge">Outcome: clear roadmap + priorities</div>
+          </div>
+          <div class="svc">
+            <h3>Mentor capability</h3>
+            <p>Set mentors up to win: expectations, tools, time, and a system that doesn’t collapse after week 2.</p>
+            <div class="badge">Outcome: better learning + retention</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2>About</h2>
+        <div class="about">
+          <div class="card">
+            <h3 style="margin:0 0 10px; font-size:18px;">Built around the job—delivered with integrity.</h3>
+            <p style="margin:0 0 12px; color:var(--muted);">
+              A&J Technical Training Services is focused on helping maintenance organizations build technician capability—without fluff and without confusion.
+              The work is practical, measurable, and designed to be used long after the class ends.
+            </p>
+            <p style="margin:0; color:var(--muted);">
+              If you value clarity, accountability, and outcomes that stick, we’ll work well together.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0 0 10px; font-size:18px;">How we work</h3>
+            <p class="quote">
+              <strong>1) Define the outcome.</strong> What should techs do differently when we’re done?<br/>
+              <strong>2) Build the path.</strong> Standards, practice, assessments, and tools.<br/>
+              <strong>3) Make it sustainable.</strong> Mentor support, trainer enablement, and follow-up.
+            </p>
+            <div class="pill-row" style="margin-top:14px">
+              <div class="pill">Direct communication</div>
+              <div class="pill">Clear scope</div>
+              <div class="pill">Repeatable tools</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <p class="lead">Tell me what you’re trying to solve. I’ll respond with next steps and a simple plan.</p>
+
+        <div class="contact">
+          <div class="card" style="padding:18px;">
+            <h3 style="margin:0 0 10px; font-size:18px;">Send a message</h3>
+
+            <!-- This form uses your email client (mailto). For a real form, connect to Formspree, Netlify Forms, or your site platform. -->
+            <form id="mailtoForm">
+              <input id="name" type="text" placeholder="Your name" required />
+              <input id="org" type="text" placeholder="Organization" />
+              <input id="email" type="email" placeholder="Your email" required />
+              <textarea id="msg" placeholder="What are you trying to solve? (e.g., apprenticeship review, retention, ZEB training path)"></textarea>
+              <button class="btn primary" type="submit">Send</button>
+            </form>
+
+            <div class="note">
+              Prefer email? <a href="mailto:[YOUR EMAIL]"><strong>[YOUR EMAIL]</strong></a><br/>
+              LinkedIn: <a href="[LINKEDIN URL]" target="_blank" rel="noopener"><strong>[LINKEDIN URL]</strong></a>
+            </div>
+          </div>
+
+          <div class="card" style="padding:18px;">
+            <h3 style="margin:0 0 10px; font-size:18px;">Book a call</h3>
+            <p style="margin:0 0 14px; color:var(--muted);">
+              If it’s easier, grab a quick slot and we’ll align on goals, timeline, and a realistic approach.
+            </p>
+            <a class="btn primary" href="[CALENDLY LINK]" target="_blank" rel="noopener">Book a 20-minute call</a>
+            <p class="note">
+              Typical first call: clarify the outcome, confirm constraints, and decide whether a short assessment phase makes sense.
+            </p>
+
+            <div style="margin-top:14px; border-top:1px solid rgba(233,238,245,.10); padding-top:14px;">
+              <div class="pill-row" style="margin:0">
+                <div class="pill">Based in Pennsylvania</div>
+                <div class="pill">Travel available</div>
+                <div class="pill">Virtual options</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>© <span id="yr"></span> A&J Technical Training Services <span class="hide-sm">• Built for speed and credibility</span></div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="#top">Top</a>
+          <span aria-hidden="true">•</span>
+          <a href="#services">Services</a>
+          <span aria-hidden="true">•</span>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Basic mailto form handler
+    document.getElementById('mailtoForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value || '';
+      const org = document.getElementById('org').value || '';
+      const email = document.getElementById('email').value || '';
+      const msg = document.getElementById('msg').value || '';
+      const subject = encodeURIComponent('Website inquiry - A&J Technical Training Services');
+      const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Organization: ' + org + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + msg + '\n'
+      );
+      window.location.href = 'mailto:[YOUR EMAIL]?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</body>
+</html>
