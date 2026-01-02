@@ -465,13 +465,14 @@
             <form id="mailtoForm">
               <input id="name" type="text" placeholder="Your name" required />
               <input id="org" type="text" placeholder="Organization" />
-              <input id="email" type="email" placeholder="Your email" required />
+              <input id="email" type="email" placeholder="ajmacumber@outlook.com" required />
               <textarea id="msg" placeholder="What are you trying to solve? (e.g., apprenticeship review, retention, ZEB training path)"></textarea>
               <button class="btn primary" type="submit">Send</button>
             </form>
 
             <div class="note">
-              Prefer email? <a href="mailto:[YOUR EMAIL]"><strong>[YOUR EMAIL]</strong></a><br/>
+              Prefer email? <a href="mailto:ajmacumber@outlook.com"><strong>ajmacumber@outlook.com</strong></a><br/>
+
               LinkedIn: <a href="[LINKEDIN URL]" target="_blank" rel="noopener"><strong>[LINKEDIN URL]</strong></a>
             </div>
           </div>
@@ -531,7 +532,8 @@
         'Email: ' + email + '\n\n' +
         'Message:\n' + msg + '\n'
       );
-      window.location.href = 'mailto:[YOUR EMAIL]?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:ajmacumber@outlook.com?subject=' + subject + '&body=' + body;
+
     });
   </script>
 </body>
